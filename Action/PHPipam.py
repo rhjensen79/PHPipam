@@ -137,10 +137,10 @@ def phpipam(context, inputs):
     get_subnetid()
     get_token()
     result = event.startswith('compute.provision')
-    if result == True :
+    if result == True :                                             #Update to match your subscription item if required.
       delete_vm()
       create_vm()
-    result = event.startswith('compute.removal')
+    result = event.startswith('compute.removal')                    #Update to match your subscription item if required.
     if result == True :
       delete_vm()
 
