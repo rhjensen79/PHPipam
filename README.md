@@ -23,6 +23,10 @@ This is not recomended for production.
 ## Quick Guide
 
 1. Deploy PHPipam and make sure API over http is allowed. (Guide will follow later)
+   This can be done, by adding $api_allow_unsafe = true; to the end of config.docker.php in the 
+   /phpipam-wwww data directory.
+   Note this is only if you are using the docker-compose file, since the compose file don't allow port 443.
+   For production use, please don't use this!
 
 2. Create a PHPipam app and key
 
