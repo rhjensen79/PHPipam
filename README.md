@@ -1,2 +1,3 @@
 # PHPipam
-PHPipam integration with VRA
+This repo contains PHPipam integration to VRA, using ABX Python actions
+
