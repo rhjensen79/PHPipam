@@ -11,9 +11,14 @@ I know the real way to do this, is probably to request an ip from PHPipam, and t
 but it was not my usecase for this.
 This should be easely done, by chaging the script, and api call, and make it a blocking task in VRA.
 
+Here is an example of the end resoult, if everything is working as it should :-) 
+![End Result](https://github.com/rhjensen79/PHPipam/blob/master/Screenshoots/end_result.png)
+
 ## Links
 [PHPipam offical site](https://phpipam.net)
+
 [PHPipam official docker image](https://hub.docker.com/r/phpipam/phpipam-www)
+
 [vRealize Automation](https://www.vmware.com/products/vrealize-automation.html)
 
 ## Postman 
