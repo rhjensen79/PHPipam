@@ -3,6 +3,8 @@ This repo contains PHPipam integration to vRealize Automation (VRA), using ABX P
 Note that I am in now way a programmer, so please use this for demo purpose only, and/or
 reuse it in your own enviroment, for inspiration.
 
+This i currently working with PHPipam 1.5. Earlier and future versions, might not work. 
+
 The idea behind this, is to update PHPipam with data, from the deployment, after the VM is deployed,
 and delete it again, when  the deployment get's removed.
 So it acts more like a CMDB.
