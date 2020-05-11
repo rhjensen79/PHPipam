@@ -16,7 +16,7 @@ app           = "PHPipam app name"                          #PHPmyipam API App N
 app_token     = "PHPipam app token"                         #PHPmyipam API App Token
 token         = ""                                          #Generated auth token
 response      = ""                                          #Response - not used yet.
-auth          = "Basic auth for PHPipam"                    #Username and Pass for PHPipam. Can be generated here https://www.blitter.se/utils/basic-authentication-header-generator/           
+Authorization = "Basic auth for PHPipam"                    #Username and Pass for PHPipam. Can be generated here https://www.blitter.se/utils/basic-authentication-header-generator/           
 
 #Get inputs from deployment
 def get_vm_input(context, inputs):
@@ -26,9 +26,7 @@ def get_vm_input(context, inputs):
     global requestid
     global project
     global owner
-    global app
-    global app_token
-    
+        
     event         = str(inputs["__metadata"]["eventTopicId"])   #Provision or remove - Not used yet. 
     ip_raw        = inputs["addresses"]                         #Raw IP input
     ipadress      = str(ip_raw[0])[2:-2]                        #Cleaned up IP
@@ -69,18 +67,13 @@ def get_subnetid():
 
 #Get token
 def get_token():
-    global phpipamhost
-    global app
-    global app_token
-    global token
-    global auth
-    
+    global token   
     url = "http://"+phpipamhost+"/api/"+app+"/user"
     payload  = {}
     headers = {
       'Content-Type': 'application/json',
       'token': ''+app_token+'',
-      'Authorization': ''+ auth +'',
+      'Authorization': ''+Authorization+'',
     }
     response = requests.request("POST", url, headers=headers, data = payload)
     #Get response as json
@@ -88,17 +81,8 @@ def get_token():
     #Set token Variable
     token = (data['data']['token'])
 
-    print ("Token : " + token)
-
 #Delete VM info
 def delete_vm():
-    global phpipamhost
-    global app
-    global ipadress
-    global subnetid
-    global token
-    global response
-
     url = "http://"+phpipamhost+"/api/"+app+"/addresses/"+ipadress+"/"+subnetid+""
     payload = "{}"
     headers = {
@@ -109,16 +93,6 @@ def delete_vm():
     
 #Create VM info
 def create_vm():
-    global description
-    global project
-    global phpipamhost
-    global subnetid
-    global hostname
-    global owner
-    global note
-    global requestid
-    global token
-
     #Create Custom Description
     description = "Project : "+project
     #Set IP
@@ -143,15 +117,3 @@ def phpipam(context, inputs):
     result = event.startswith('compute.removal')                    #Update to match your subscription item if required.
     if result == True :
       delete_vm()
-
-    #Print Variable values, for Debugging.    
-    print ("- - - Variables - - - ")
-    print ("Event : " + event)
-    print ("Ipadress : " + ipadress)
-    print ("Hostname : " + hostname)
-    print ("Requestid : " + requestid)
-    print ("Project : " + project)
-    print ("Owner : " + owner)
-    print ("Subnetid : " + subnetid)
-    print ("Token : " + token)
-
