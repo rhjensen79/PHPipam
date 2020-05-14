@@ -23,6 +23,10 @@ Here is an example of the end resoult, if everything is working as it should :-)
 
 [vRealize Automation](https://www.vmware.com/products/vrealize-automation.html)
 
+## Changelog
+- 14 May 2020   - Added cleanup script
+- 26 April 2020 - Initial version
+
 ## Postman 
 Contains some Postman examples, to test the API.
 There is both a Postman enviroment file, and a collection.
