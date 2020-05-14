@@ -51,6 +51,11 @@ The Cron container, is set to  scan the subnets (if you turn it on) every 15 min
 Note that the script is created, so if the ip is already  in use, it will be deleted, and a new entry will
 be created, with the same ipadress, with the info from the deployment. 
 
+## Extra
+Extra scripts etc.
+### Cleanup.py
+Is created, since i don't have easy access to the cron jobs, in the PHPipam Docker appliance, and i needed some way, to cleanup old records. Also it was a good excuse, to play around a bit more, with the API :-) 
+Note it can easely be modified, to delete other than Offline records. 
 
 ## Custom
 I have created a cusom field, that i polulate, from the VM deployment. 
